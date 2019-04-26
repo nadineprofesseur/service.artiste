@@ -21,9 +21,7 @@ foreach($listeArtistes as $artiste){
 ?>
 	<artiste>
 		<nom><?php echo $artiste->nom?></nom>
-		<surnom><?php echo $artiste->surnom?></surnom>
-		<age><?php echo $artiste->age?></age>
-		<ville><?php echo $artiste->ville?></ville>
+		<id><?php echo $artiste->id?></id>
 	</artiste>	
 
 <?php
