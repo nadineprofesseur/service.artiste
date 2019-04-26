@@ -1,9 +1,14 @@
 package vue;
 
 import java.io.IOException;
+import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 //import javafx.scene.control.ListView;
+import javafx.scene.control.ListView;
+import modele.Artiste;
 
 public class PageListeArtiste extends Page{
 
@@ -11,16 +16,14 @@ public class PageListeArtiste extends Page{
 		super(FXMLLoader.load(PageListeArtiste.class.getResource("liste-artistes.fxml")));		
 	}
 
-	/*
-	 * 	public void afficherListeExoplanetes(List<Exoplanete> listeExoplanetes)
+	public void afficherListeArtistes(List<Artiste> listeArtistes)
 	{
 		ObservableList<String> items = FXCollections.observableArrayList ();
-		ListView grilleDesPlanetes = (ListView) this.lookup("#liste-exoplanetes");
-		for(Exoplanete exoplanete : listeExoplanetes)
+		ListView grilleDesArtistes = (ListView) this.lookup("#liste-artistes");
+		for(Artiste artiste : listeArtistes)
 		{
-			items.add(exoplanete.getNom());
-			//espaceTexte.appendText(exoplanete.getNom() + "\n");					
+			items.add(artiste.getNom());
 		}
-		grilleDesPlanetes.setItems(items);
-	}*/
+		grilleDesArtistes.setItems(items);
+	}
 }

@@ -1,6 +1,7 @@
 package vue;
 import java.io.IOException;
 
+import donnee.ArtisteDAO;
 import javafx.application.Application;
 import javafx.stage.Stage;
 //import action.ControleurArtiste;
@@ -40,6 +41,8 @@ public class NavigateurDePages extends Application {
 	public void start(Stage stade) throws Exception {
 		//this.controleur.initialiser();
 		this.stade = stade;
+		ArtisteDAO artisteDAO = new ArtisteDAO();
+		this.pageListeArtiste.afficherListeArtistes(artisteDAO.listerArtistes());
 		this.stade.setScene(this.pageListeArtiste); // pour dire quelle vue afficher en premier
 		//this.pageListeExoplanete.afficherListeExoplanetes("terre + mars");
  		// TODO : activer dans le controleur la premiere vue
