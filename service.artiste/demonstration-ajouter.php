@@ -9,16 +9,17 @@ $filtresDemonstration = array(
 );
 
 $demonstration = filter_var_array($_POST, $filtresDemonstration);
-print_r($demonstration);
+//print_r($demonstration);
 
 $SQL_AJOUTER_DEMONSTRATION = "INSERT INTO demonstration(id_artiste, titre, resume, date, lieu) VALUES(:id_artiste, :titre, :resume, :date, :lieu)"; 
+
 include "connexion.php";
 $requeteAjouterDemonstration = $basededonnees->prepare($SQL_AJOUTER_DEMONSTRATION);
 $requeteAjouterDemonstration->bindParam(":id_artiste", $demonstration['id_artiste'], PDO::PARAM_INT);
-$requeteAjouterDemonstration->bindParam(":titre", $demonstration['titre'], PDO::PARAM_INT);
-$requeteAjouterDemonstration->bindParam(":resume", $demonstration['resume'], PDO::PARAM_INT);
-$requeteAjouterDemonstration->bindParam(":date", $demonstration['date'], PDO::PARAM_INT);
-$requeteAjouterDemonstration->bindParam(":lieu", $demonstration['lieu'], PDO::PARAM_INT);
+$requeteAjouterDemonstration->bindParam(":titre", $demonstration['titre'], PDO::PARAM_STR);
+$requeteAjouterDemonstration->bindParam(":resume", $demonstration['resume'], PDO::PARAM_STR);
+$requeteAjouterDemonstration->bindParam(":date", $demonstration['date'], PDO::PARAM_STR);
+$requeteAjouterDemonstration->bindParam(":lieu", $demonstration['lieu'], PDO::PARAM_STR);
 $requeteAjouterDemonstration->execute();
 
 ?>
